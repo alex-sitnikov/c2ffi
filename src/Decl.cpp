@@ -120,7 +120,7 @@ void FunctionsMixin::add_functions(C2FFIASTConsumer* ast, const clang::CXXRecord
         f->set_is_static(m->isStatic());
         f->set_is_virtual(m->isVirtual());
         f->set_is_const(m->isConst());
-        f->set_is_pure(m->isPure());
+        f->set_is_pure(m->isPureVirtual());
         f->set_location(ast->ci(), m);
 
         for(clang::FunctionDecl::param_const_iterator i = m->param_begin(); i != m->param_end(); i++) {

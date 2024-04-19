@@ -62,7 +62,7 @@ int main(int argc, char *argv[]) {
 
     C2FFIASTConsumer *astc = NULL;
 
-    const clang::FileEntry *file = ci.getFileManager().getFile(sys.filename).get();
+    auto&& file = ci.getFileManager().getFileRef(sys.filename).get();
     clang::FileID fid = ci.getSourceManager().createFileID(file,
                                                            clang::SourceLocation(),
                                                            clang::SrcMgr::C_User);

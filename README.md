@@ -7,8 +7,9 @@ LLVM/Clang:
 * 15.0.0: branch `llvm-15.0.0` *deprecated*
 * 16.0.6: branch `llvm-16.0.0` *old*
 * 17.0.6: branch `llvm-17.0.0` *current*
+* 18.1.x: branch `llvm-18.1.0` *current*
 
-Developement will always take place in `llvm-X.Y`, according to the
+Development will always take place in `llvm-X.Y`, according to the
 appropriate version of LLVM.  **The *master* branch has been
 removed.** Check out the appropriate version for your LLVM.
 
@@ -16,6 +17,17 @@ removed.** Check out the appropriate version for your LLVM.
 version than supported, posting a ticket *with build log* after having bumped
 the LLVM version in `CMakeLists.txt` would be helpful; you may not even need
 changed beyond that (feel free to post an PR if this is the case).
+
+**Windows:** This apparently builds and works in Windows now as well, with MSYS2;
+make sure you have the following:
+
+```
+$ pacman -S mingw-w64-x86_64-clang mingw-w64-x86_64-clang-tools-extra gcc cmake ninja
+$ mkdir build; cd build
+$ cmake -G Ninja ..
+```
+
+(I couldn't get make to work; nor have I tried building this with clang.)
 
 `c2ffi` now provides tagged versions as well.  To hopefully avoid confusion,
 these correlate to the appropriate version of LLVM, along with an additional
